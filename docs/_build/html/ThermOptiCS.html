@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>ThermOptiCS &#8212; ThermOptCobra 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css" />
+    <script src="_static/jquery.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ThermOptFlux" href="ThermOptFlux.html" />
+    <link rel="prev" title="ThermOptCC" href="ThermOptCC.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mat-modindex.html" title="MATLAB Module Index"
+             >matlab index</a> |</li>
+        <li class="right" >
+          <a href="ThermOptFlux.html" title="ThermOptFlux"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ThermOptCC.html" title="ThermOptCC"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ThermOptCobra 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ThermOptiCS</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-src.ThermOptiCS">
+<span id="thermoptics"></span><h1>ThermOptiCS<a class="headerlink" href="#module-src.ThermOptiCS" title="Permalink to this heading"></a></h1>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="src.ThermOptiCS.ThermOptiCS">
+<span class="sig-name descname"><span class="pre">ThermOptiCS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">core</span></em>, <em class="sig-param"><span class="pre">tol</span></em>, <em class="sig-param"><span class="pre">TICs</span></em>, <em class="sig-param"><span class="pre">Dir</span></em>, <em class="sig-param"><span class="pre">doTOCC</span></em>, <em class="sig-param"><span class="pre">timeLimit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.ThermOptiCS.ThermOptiCS" title="Permalink to this definition"></a></dt>
+<dd><p>Thermodynamically feasible context-specific model building.</p>
+<dl class="field-list simple">
+<dt class="field-odd">USAGE<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[Model,bCoreRxns,TICs,Dir] = ThermOptiCS</strong> (<em>model,core,tol</em>)</p>
+</dd>
+<dt class="field-even">INPUTS<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>model</strong> – COBRA model structure for which act as the GSMM</p></li>
+<li><p><strong>core</strong> – Reaction IDs which are defined to be core (These
+reactions will be present in the final model)</p></li>
+<li><p><strong>tol</strong> – Tolerance value (User defined non-zero value).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">OPTIONAL INPUTS<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TICs</strong> – TICs of the ‘model’ (output from ThermOptEnumMILP)</p></li>
+<li><p><strong>Dir</strong> – Direction of the TICs (output from ThermOptEnumMILP)</p></li>
+<li><p><strong>doTOCC</strong> – Boolean value.
+1: ThermOptCC will be run on the model and blocked
+reactions will be removed
+0: ThermOptCC will not be run on the model (This
+requires the input model to be thermodynamically-flux
+consistent)</p></li>
+<li><p><strong>timeLimit</strong> – Upper time limit in seconds to solve the minReac
+optimization problem (Default: 120s)</p></li>
+</ul>
+</dd>
+<dt class="field-even">OUTPUTS<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>Model</strong> – Context-specific model</p></li>
+<li><p><strong>bCoreRxns</strong> – Core reactions that are thermodynamically blocked (or infeasible)</p></li>
+<li><p><strong>TICs</strong> – List of all the Thermodynamically infeasible cycles in
+the given input model</p></li>
+<li><p><strong>Dir</strong> – The flux directions for reactions in the corresponding
+TICs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ThermOptCC.html"
+                          title="previous chapter">ThermOptCC</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ThermOptFlux.html"
+                          title="next chapter">ThermOptFlux</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ThermOptiCS.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mat-modindex.html" title="MATLAB Module Index"
+             >matlab index</a> |</li>
+        <li class="right" >
+          <a href="ThermOptFlux.html" title="ThermOptFlux"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ThermOptCC.html" title="ThermOptCC"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ThermOptCobra 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ThermOptiCS</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Pavan.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    </div>
+  </body>
+</html>
